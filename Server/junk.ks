@@ -1,0 +1,51 @@
+queryInterface.changeColumn('user_data','username',
+    {
+      type:Sequelize.STRING,
+      allowNull:false,
+      primaryKey:true
+    }),
+    queryInterface.changeColumn('user_data','name',
+    {
+      type:Sequelize.STRING,
+      allowNull:false
+    }),
+    queryInterface.changeColumn('user_data','passsword',
+    {
+      type:Sequelize.STRING,
+      allowNull:false
+    }),
+    queryInterface.changeColumn('user_data','phone',
+    {
+      type:Sequelize.STRING,
+      allowNull:false,
+      unique:true
+    })
+  ])
+  },
+  down: (queryInterface, Sequelize) => {
+    return Promise.all([queryInterface.dropTable('user_data'),
+    queryInterface.changeColumn('user_data','username',
+    {
+      type:Sequelize.STRING,
+      allowNull:true,
+      primaryKey:false
+    }),
+    queryInterface.changeColumn('user_data','name',
+    {
+      type:Sequelize.STRING,
+      allowNull:true
+    }),
+    queryInterface.changeColumn('user_data','passsword',
+    {
+      type:Sequelize.STRING,
+      allowNull:true
+    }),
+    queryInterface.changeColumn('user_data','phone',
+    {
+      type:Sequelize.STRING,
+      allowNull:true,
+      unique:false
+    })
+  ])
+  }
+};
